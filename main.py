@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify
 import json
 from datetime import datetime, timezone
 from data import get_fastbull_news
-
+import os
 app = Flask(__name__)
 
 # Fungsi untuk mengonversi timestamp ke format waktu yang lebih mudah dibaca
@@ -31,4 +31,5 @@ def get_data():
     return jsonify(data)  # Kirim data sebagai JSON
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))  # Gunakan PORT dari Railway
+    app.run(host="0.0.0.0", port=port)
