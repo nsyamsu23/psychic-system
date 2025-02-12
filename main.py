@@ -29,7 +29,3 @@ def get_data():
         item["formatted_date"] = format_time(item["releasedDate"])
 
     return jsonify(data)  # Kirim data sebagai JSON
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Gunakan PORT dari Railway
-    app.run(host="0.0.0.0", port=port)
